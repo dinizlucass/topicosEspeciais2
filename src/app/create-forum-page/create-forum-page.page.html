@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Criar Novo Fórum</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Título</ion-label>
+      <ion-input type="text" [(ngModel)]="forum.title" name="title" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-textarea rows="5" [(ngModel)]="forum.description" name="description" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Imagem (URL)</ion-label>
+      <ion-input type="url" [(ngModel)]="forum.imageUrl" name="imageUrl"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" color="primary">Criar Fórum</ion-button>
+  </form>
+</ion-content>
