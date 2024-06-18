@@ -15,13 +15,17 @@ const routes: Routes = [
     loadChildren: () => import('./create-forum-page/create-forum-page.module').then(m => m.CreateForumPageModule)
   },
   {
-    path: '', // Rota padrão quando o path está vazio
-    redirectTo: 'home', // Redireciona para a rota 'home'
+    path: '',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
-    path: '**', // Rota para lidar com caminhos não correspondentes
-    redirectTo: 'home' // Redireciona para a rota 'home' em caso de caminho não encontrado
+    path: '**',
+    redirectTo: 'home'
+  },
+  {
+    path: 'user-page',
+    loadChildren: () => import('./user-page/user-page.module').then(m => m.UserPagePageModule)
   }
 ];
 

@@ -5,109 +5,39 @@
     </ion-buttons>
     <ion-title>Fórum Virtual</ion-title>
   </ion-toolbar>
+  <ion-searchbar (ionInput)="filterPosts($event)"></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-
-    <!-- Tópico sobre Filmes -->
-    <ion-item>
+    <ion-item *ngFor="let post of filteredPosts">
       <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar1.jpg">
+        <img [src]="post.image">
       </ion-thumbnail>
       <ion-label>
-        <h2>Melhores Filmes de Ação de Todos os Tempos</h2>
-        <p>Discuta os melhores filmes de ação que você já viu. Compartilhe suas opiniões sobre cenas de ação, enredos emocionantes e atuações memoráveis.</p>
-        <p class="posted-by">Postado por <strong>Usuário123</strong></p>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.description }}</p>
+        <p class="posted-by">Postado por <strong>{{ post.author }}</strong></p>
       </ion-label>
     </ion-item>
-
-    <!-- Tópico sobre Música -->
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar2.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Bandas Alternativas Emergentes</h2>
-        <p>Descubra e discuta novas bandas alternativas que estão emergindo na cena musical. Compartilhe links para músicas, vídeos e opiniões sobre os próximos talentos musicais.</p>
-        <p class="posted-by">Postado por <strong>Usuario456</strong></p>
-      </ion-label>
-    </ion-item>
-
-    <!-- Tópico sobre Desenhos -->
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar3.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Animações que Marcaram Época</h2>
-        <p>Explore o mundo das animações e desenhos animados que transcenderam as expectativas. Desde clássicos da infância até animações modernas, compartilhe suas favoritas.</p>
-        <p class="posted-by">Postado por <strong>Usuario789</strong></p>
-      </ion-label>
-    </ion-item>
-
-    <!-- Mais Tópicos -->
-
-    <!-- Tópico 4: Filmes de Terror que Deixaram uma Impressão -->
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar4.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Filmes de Terror que Deixaram uma Impressão</h2>
-        <p>Compartilhe suas experiências e opiniões sobre filmes de terror que realmente assustaram. Quais são os mais assustadores e por quê?</p>
-        <p class="posted-by">Postado por <strong>AmanteDoTerror</strong></p>
-      </ion-label>
-    </ion-item>
-
-    <!-- Tópico 5: Novos Álbuns de Rock Mais Promissores -->
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar5.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Novos Álbuns de Rock Mais Promissores</h2>
-        <p>Descubra os últimos lançamentos no mundo do rock e compartilhe suas críticas sobre os álbuns mais promissores da atualidade.</p>
-        <p class="posted-by">Postado por <strong>RockerForever</strong></p>
-      </ion-label>
-    </ion-item>
-
-    <!-- Tópico 6: Clássicos da Animação Japonesa -->
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar6.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Clássicos da Animação Japonesa</h2>
-        <p>Explore os clássicos do anime que definiram o gênero. Discuta sobre temas, personagens e influências culturais.</p>
-        <p class="posted-by">Postado por <strong>JapanimationFan</strong></p>
-      </ion-label>
-    </ion-item>
-
-    <!-- Tópico 7: Trilhas Sonoras Memoráveis do Cinema -->
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar7.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Trilhas Sonoras Memoráveis do Cinema</h2>
-        <p>Relembre e discuta trilhas sonoras que se tornaram icônicas no mundo do cinema. Como a música contribui para a experiência cinematográfica?</p>
-        <p class="posted-by">Postado por <strong>CineMusicLover</strong></p>
-      </ion-label>
-    </ion-item>
-
-    <!-- Tópico 8: Animações Infantis que Encantam Gerações -->
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="assets/imgs/avatar8.jpg">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Animações Infantis que Encantam Gerações</h2>
-        <p>Compartilhe suas animações favoritas da infância e discuta como esses desenhos continuam a encantar crianças ao longo do tempo.</p>
-        <p class="posted-by">Postado por <strong>KidsAnimationFan</strong></p>
-      </ion-label>
-    </ion-item>
-    <!-- Adicione mais itens conforme necessário -->
-
   </ion-list>
 </ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="create-forum">
+      <ion-icon name="create-outline"></ion-icon>
+      <ion-label>Create Forum</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="user">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>User</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
